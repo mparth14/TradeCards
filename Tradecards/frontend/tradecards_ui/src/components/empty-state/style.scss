@@ -1,0 +1,11 @@
+.empty-state {
+  display: flex;
+  height: calc(100vh - 115px);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+  font-weight: bold;
+  background-color: transparent;
+}
