@@ -1,0 +1,37 @@
+.chat-interface {
+  color: hsl(318, 22%, 27%);
+
+  .receiver-chat {
+    margin-top: 12px;
+
+    &-msg{
+      min-width: 100px;
+      max-width: 500px;
+      word-wrap: break-word;
+      background-color: #f6f6f6;
+      padding: 15px;
+      border-radius: 12px;
+    }
+  }
+
+  .sender-chat {
+    justify-content: end;
+    margin-top: 12px;
+    flex-direction: row-reverse;
+
+    &-msg {
+      min-width: 100px;
+      max-width: 500px;
+      word-wrap: break-word;
+      background-color: #f6f6f6;
+      padding: 15px;
+      border-radius: 12px;
+    }
+  }
+
+  .chat-style {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}

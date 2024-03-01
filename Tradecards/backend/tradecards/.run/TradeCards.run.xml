@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TradeCards" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="dal.asdc.tradecards.TradecardsApplication" />
+    <module name="tradecards" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

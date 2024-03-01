@@ -1,0 +1,24 @@
+.coupon-listing {
+  margin-top: 20px;
+  margin-left: 60px;
+  display: flex;
+  flex-direction: column;
+  color: hsla(318, 22%, 27%, 1);
+  
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 65px;
+    margin-bottom: 12px;
+
+    &-see-more {
+      color: hsla(318, 22%, 27%, 1);
+      cursor: pointer;
+    }
+    &-heading {
+      color: hsla(318, 22%, 27%, 1);
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
+}

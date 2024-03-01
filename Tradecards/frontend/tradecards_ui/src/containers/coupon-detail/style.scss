@@ -1,0 +1,128 @@
+.coupon-detail {
+  &-image-container {
+    min-height: 450px;
+    width: 100%;
+    padding: 32px 0px;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    background-repeat: no-repeat !important;
+    background-position: right center !important;
+    position: relative;
+    margin: 0px auto;
+    max-width: 1440px;
+    background-size: 100% !important;
+
+    .d-flex {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: space-between;
+      min-height: 405px;
+      margin-left: 28px;
+    }
+
+    .coupon-detail-image {
+      margin-left: 30px;
+      height: 400px;
+      max-width: 300px;
+    }
+    &-name {
+      font-family: Roboto;
+      font-size: 36px;
+      font-weight: bolder;
+      line-height: 42px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+    }
+    &-btn {
+      background-color: hsl(318, 22%, 27%) !important;
+    }
+    &-brand {
+
+    }
+    &-price {
+      letter-spacing: 0.2px;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 30px;
+      color: rgb(255, 255, 255);
+      padding: 2px 0px 0px 8px;
+    }
+  }
+  &-info {
+    padding-left: 30px;
+    margin-top: 20px;
+    
+    &-desc-heading {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 30px;
+      color: rgb(0, 0, 0);
+    }
+    &-desc {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+      color: rgb(51, 51, 51);
+      padding-top: 16px;
+    }
+    &-location {
+      color: rgb(0, 0, 0);
+      margin-top: 20px;
+      font-style: normal;
+      font-weight: 500;
+    }
+    &-seller {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 24px;
+      letter-spacing: 0.2px;
+      color: rgb(51, 51, 51);
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+
+      &-name {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      &-popreviews {
+        margin-top: 20px;
+      }
+      &-reviews {
+        max-height: 500px;
+        border: 1px solid hsl(318, 22%, 27%);
+        padding: 20px;
+        margin-right: 20px;
+        overflow-y: scroll;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &-wrapper {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding-bottom: 20px;
+          border-bottom: 1px solid hsl(318, 22%, 27%);
+
+          &-review {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+          }
+        }
+      }
+      &-reviews::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}

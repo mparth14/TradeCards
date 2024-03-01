@@ -1,0 +1,176 @@
+.nav-bar {
+  background: hsla(318, 22%, 27%, 1);
+  height: fit-content;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  &-img {
+    height: 100px;
+    cursor: pointer;
+    margin-right: 40px;
+  }
+  &-labels {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-top: 8px;
+    margin-left: 20px;
+  }
+
+  &-components {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    &-right {
+      display: flex;
+      align-items: center;
+      &-add-coupon {
+        background: #fff !important;
+        color: hsla(318, 22%, 27%, 1) !important;
+        margin-right: 12px !important;
+      }
+      &-avatar {
+        margin-right: 12px;
+      }
+    }
+  }
+
+  &-sub-contents {
+    display: flex;
+    width: 100%;
+    margin-top: 20px;
+    background: hsl(318deg 22.11% 14.7%);
+    padding: 8px 0;
+
+    &-label {
+      margin-left: 16px;
+      font-weight: 400;
+      cursor: pointer;
+    }
+  }
+
+  &-label {
+    font-size: 20px;
+    font-weight: 800;
+    margin-right: 8px;
+  }
+
+  &-modal {
+    right: calc(50% - 200px) !important;
+    top: calc(50% - 100px) !important;
+    bottom: auto !important;
+    left: auto !important;
+    height: 250px;
+    width: 550px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    
+    &-contents {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      outline: none;
+      border: none;
+      z-index: 10;
+      position: relative;
+
+      .location-selector {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: space-around;
+
+        &-detector {
+          color: red;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          cursor: pointer;
+          margin-top: 12px;
+          font-size: 10px;
+
+          &-prompt {
+            display: flex;
+            margin-bottom: 8px;
+            font-size: 20px;
+          }
+        }
+
+        &-suggestion {
+          color: #7a2727;
+          display: flex;
+          flex-direction: column;
+          margin: auto 12px;
+
+          &-title {
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+          }
+
+          &-container {
+            display: flex;
+            justify-content: space-around;
+
+            &-city {
+              cursor: pointer;
+              border-right: 1px solid lightgrey;
+              padding-right: 8px;
+            }
+          }
+        }
+
+        .fas.fa-map-marker-alt {
+          font-size: 16px;
+          margin-right: 8px;
+        }
+      }
+
+      &-footer {
+        display: flex;
+        border-top: 1px solid rgb(27, 27, 67);
+        justify-content: flex-end;
+        padding-top: 20px;
+        &-btn {
+          margin-right: 12px !important;
+          background-color: #7a2727 !important;
+
+          &.cancel {
+            color: #7a2727;
+            background-color: #fff !important;
+            border: 1px solid #7a2727;
+          }
+        }
+      }
+    }
+  }
+
+  &-location {
+    font-size: 20px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+
+    &-contents {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      &-label {
+        margin-right: 8px;
+      }
+    }
+  }
+}

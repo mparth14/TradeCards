@@ -1,0 +1,33 @@
+@use './chat-interface/style.scss' as ChatModal;
+
+.chat-modal {
+  &-header {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid hsl(318, 22%, 27%);
+
+    &-title {
+      color: hsl(318, 22%, 27%);
+    }
+  }
+  &-description {
+    flex: 1;
+    overflow: auto;
+    padding-bottom: 12px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  &-description::-webkit-scrollbar {
+    display: none;
+  }
+  &-sender {
+    display: flex;
+    align-items: center;
+
+    &-input {
+      flex: 1;
+    }
+  }
+}

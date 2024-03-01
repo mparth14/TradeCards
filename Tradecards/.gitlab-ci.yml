@@ -1,0 +1,69 @@
+variables:
+  MAVEN_IMAGE_TAG: "3.8.4"
+  NODE_IMAGE_TAG: "20.5.1"
+
+stages:
+  - build
+  - test
+  - deploy
+
+backend_build:
+  stage: build
+  image: maven:$MAVEN_IMAGE_TAG
+  script:
+    - mkdir smells/
+    - java -jar .gitlab/DesigniteJava.jar -i backend/tradecards -o smells/ -d
+    - cd backend/tradecards
+    - mvn clean install
+  artifacts:
+    paths:
+      - backend/tradecards/target/*.jar 
+      - smells
+
+frontend_build:
+  stage: build
+  image: node:$NODE_IMAGE_TAG 
+  script:
+    - cd frontend/tradecards_ui 
+    - npm install
+    - npm run build
+  artifacts:
+    paths:
+      - frontend/tradecards_ui/build 
+
+backend_test:
+  stage: test
+  image: maven:$MAVEN_IMAGE_TAG 
+  script:
+    - cd backend/tradecards 
+    - mvn test
+
+deploy:
+  stage: deploy
+  only: 
+    - main
+  image: kroniak/ssh-client
+  script:
+    - chmod 400 "${SSH_PRIVATE_KEY}"
+    - scp -o StrictHostKeyChecking=no -i "${SSH_PRIVATE_KEY}" backend/tradecards/target/tradecards-*.jar student@csci5308vm13.research.cs.dal.ca:~/tradecards.jar
+    - scp -o StrictHostKeyChecking=no -i "${SSH_PRIVATE_KEY}" -r frontend/tradecards_ui/build/* student@csci5308vm13.research.cs.dal.ca:~/frontend
+    - ssh -o StrictHostKeyChecking=no -i "${SSH_PRIVATE_KEY}" student@csci5308vm13.research.cs.dal.ca "cd ~/frontend && serve -s . > webserver.log 2>&1 &"
+    - ssh -o StrictHostKeyChecking=no -i "${SSH_PRIVATE_KEY}" student@csci5308vm13.research.cs.dal.ca "nohup java -jar tradecards.jar > app.log 2>&1 &"
+    - echo "React app started in background"
+    - echo "Spring Boot application started in the background."
+
+smell_issue_creations:
+  stage: deploy
+  only:
+    - main
+  dependencies:
+    - backend_build
+  image: "python:3.10"
+  script:
+    - ls -a smells/
+    - pip install -r .gitlab/requirements.txt
+    - python .gitlab/issue.py $CI_COMMIT_SHA
+
+cache:
+  paths:
+    - backend/tradecards/.m2/repository/ 

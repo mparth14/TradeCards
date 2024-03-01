@@ -1,0 +1,43 @@
+.my-messages {
+  display: flex;
+  height: calc(100% - 113px);
+  font-weight: 500;
+  .left-container {
+    margin-top: 80px;
+    border-right: 1px solid hsla(318, 22%, 27%, 1);
+    border-top: 1px solid hsla(318, 22%, 27%, 1);
+
+    &-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: hsla(318, 22%, 27%, 1);
+      padding: 20px 40px;
+      border-bottom: 1px solid hsla(318, 22%, 27%, 1);
+      cursor: pointer;
+    }
+    &-user:hover {
+      background-color:	#fff;
+    }
+    .selected {
+      background-color:	#fff;
+    }
+  }
+  .right-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .chat-modal-header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .chat-modal-sender {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+  }
+}
